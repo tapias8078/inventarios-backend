@@ -25,4 +25,4 @@ const EstadoEquipoSchema = Schema({
 
 })
 
-module.exports = module('EstadoEquipo',EstadoEquipoSchema)
+module.exports = model('EstadoEquipo',EstadoEquipoSchema)

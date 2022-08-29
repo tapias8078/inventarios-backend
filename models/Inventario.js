@@ -3,7 +3,8 @@ const {Schema,model} = require('mongoose')
 const InventarioSchema = Schema({
     serial:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     modelo:{
         type:String,
@@ -60,4 +61,4 @@ const InventarioSchema = Schema({
 
 })
 
-module.exports = module('Inventario', InventarioSchema)
+module.exports = model('Inventario', InventarioSchema)
