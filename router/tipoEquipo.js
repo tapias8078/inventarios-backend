@@ -1,5 +1,7 @@
 const {Router} = require('express')
 const TipoEquipo = require('../models/TipoEquipo')
+const{ validarTipoEquipo }=require('../helpers/validar-tipoEquipo')
+
 const router = Router()
 
 router.get('/', async function(req,res){
@@ -14,6 +16,10 @@ router.get('/', async function(req,res){
 })
 router.post('/', async function(req,res){
     try{
+        const validaciones = validarTipoEquipo(req)
+        if (validaciones.length > 0) {
+            return res.status(400).send(validaciones)
+        }
         let tipoEquipo = new TipoEquipo();
         tipoEquipo.nombre = req.body.nombre
         tipoEquipo.estado = req.body.estado

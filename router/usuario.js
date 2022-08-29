@@ -1,10 +1,15 @@
 const {Router} = require('express')
 const router = Router()
+const {validarUsuario}=require('../helpers/validar-usuario')
 const Usuario = require('../models/Usuario')
 
 
 router.post('/', async function(req,res){
     try{
+    const validaciones = validarUsuario(req)
+    if (validaciones.length > 0) {
+        return res.status(400).send(validaciones)
+    }
     console.log('Archivo recibido', req.body);
 
     const existeUsuario = await Usuario.findOne({email: req.body.email})
