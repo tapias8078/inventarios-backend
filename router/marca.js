@@ -29,7 +29,7 @@ router.post('/', async function(req,res){
         res.send(marca)
     }catch(error){
         console.log(error);
-        res.send('Ocurrio un error')
+        res.status(500).send('Ocurrio un error')
     }
 })
 router.put('/:marcaId', async function(req,res){
