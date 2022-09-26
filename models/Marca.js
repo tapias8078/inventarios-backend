@@ -14,12 +14,12 @@ const MarcaSchema = Schema({
         ]
     },
     fechaCreacion:{
-        type:String,
+        type:Date,
         required:true,
         
     },
     fechaActualizacion:{
-        type:String,
+        type:Date,
         required:true,
 
     }

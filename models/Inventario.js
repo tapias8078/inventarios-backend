@@ -51,11 +51,11 @@ const InventarioSchema = Schema({
         required: true
     },
     fechaCreacion:{
-        type:String,
+        type:Date,
         required:true,        
     },
     fechaActualizacion:{
-        type:String,
+        type:Date,
         required:true,
     }    
 
