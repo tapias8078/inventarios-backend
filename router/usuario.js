@@ -49,6 +49,21 @@ router.get('/', async function(req,res){
     }
 
 })
+
+router.get('/:usuarioId', async function(req, res){
+    try {
+        const usuario = await Marca.findById(req.params.usuarioId)
+        if (!usuario) {
+            return res.status(404).send('Marca no existe')
+                          
+        }
+        res.send(usuario)
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Ocurrio un error al consultar usuario')
+    }
+ })
+
 router.put('/:usuarioId', async function(req,res){
     try{
         console.log('Archivo recibido', req.body, req.params);

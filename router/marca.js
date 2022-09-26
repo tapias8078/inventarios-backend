@@ -14,6 +14,22 @@ router.get('/', async function(req,res){
     }
     
 })
+
+router.get('/:marcaId', async function(req, res){
+    try {
+        const marcas = await Marca.findById(req.params.marcaId)
+        if (!marcas) {
+            return res.status(404).send('Marca no existe')
+                          
+        }
+        res.send(marcas)
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Ocurrio un error al consultar marcas')
+    }
+ })
+
+
 router.post('/', async function(req,res){
     try{
         const validaciones = validarMarca(req)
@@ -32,6 +48,7 @@ router.post('/', async function(req,res){
         res.status(500).send('Ocurrio un error')
     }
 })
+
 router.put('/:marcaId', async function(req,res){
     try{
         let marca = await Marca.findById(req.params.marcaId)

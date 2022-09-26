@@ -50,4 +50,18 @@ router.put('/:estadoEquipoId', async function(req,res){
     }
 })
 
+router.get('/:estadoEquipoId', async function(req, res){
+    try {
+        const estado = await EstadoEquipo.findById(req.params.estadoEquipoId)
+        if (!estado) {
+            return res.status(404).send('Estado no existe')
+                          
+        }
+        res.send(marcas)
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Ocurrio un error al consultar Estado Equipo')
+    }
+ })
+
 module.exports = router

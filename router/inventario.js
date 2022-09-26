@@ -1,6 +1,7 @@
 const {Router} = require('express')
 const Invetario = require('../models/Inventario')
 const {validarInventario} = require('../helpers/validar-inventario')
+const Inventario = require('../models/Inventario')
 
 
 const router = Router()
@@ -102,5 +103,5 @@ router.put('/:inventarioId', async function(req,res){
         }
      })
 
-
+ 
 module.exports = router

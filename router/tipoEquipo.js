@@ -14,6 +14,22 @@ router.get('/', async function(req,res){
     }
 
 })
+
+router.get('/:tipoEquipoId', async function(req, res){
+    try {
+        const equipo = await Marca.findById(req.params.tipoEquipoId)
+        if (!equipo) {
+            return res.status(404).send('este tipo de equipo no existe')
+                          
+        }
+        res.send(equipo)
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Ocurrio un error al consultar tipo equipo')
+    }
+ })
+
+
 router.post('/', async function(req,res){
     try{
         const validaciones = validarTipoEquipo(req)
