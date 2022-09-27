@@ -1,9 +1,8 @@
 const {Router} = require('express')
 const EstadoEquipo = require('../models/EstadoEquipo')
 const {validarEstadoEquipo} = require('../helpers/validar-estadoEquipo')
-
-
 const router = Router()
+
 
 router.get('/', async function(req,res){
     try{

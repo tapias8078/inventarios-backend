@@ -32,11 +32,6 @@ router.post('/', async function(req,res){
     }
 })
 
-// router.post('/', function(req,res){
-//     console.log('Objecto recibido', req.body);
-//     res.send(req.body)
-
-// })
 
 router.get('/', async function(req,res){
     try{
