@@ -22,7 +22,7 @@ router.get('/:marcaId', async function(req, res){
             return res.status(404).send('Marca no existe')
                           
         }
-        res.send(marcas)
+        res.send(marca)
     } catch (error) {
         console.log(error);
         res.status(500).send('Ocurrio un error al consultar marcas')
