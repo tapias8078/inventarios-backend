@@ -17,8 +17,8 @@ router.get('/', async function(req,res){
 
 router.get('/:marcaId', async function(req, res){
     try {
-        const marcas = await Marca.findById(req.params.marcaId)
-        if (!marcas) {
+        const marca = await Marca.findById(req.params.marcaId)
+        if (!marca) {
             return res.status(404).send('Marca no existe')
                           
         }
