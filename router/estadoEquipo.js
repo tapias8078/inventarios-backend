@@ -56,7 +56,7 @@ router.get('/:estadoEquipoId', async function(req, res){
             return res.status(404).send('Estado no existe')
                           
         }
-        res.send(marcas)
+        res.send(estado)
     } catch (error) {
         console.log(error);
         res.status(500).send('Ocurrio un error al consultar Estado Equipo')
